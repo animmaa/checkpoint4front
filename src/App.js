@@ -1,11 +1,22 @@
+import { Routes, Route } from 'react-router-dom';
+import Footer from './components/footer/Footer';
+import Header from './components/header/Header';
+import Home from './components/pages/home/Home';
+import ListDishes from './components/pages/listDishes/ListDishes';
+import SearchDishe from './components/pages/searchDishe/SearchDishe';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        coucou
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/listdishes" element={<ListDishes />} />
+        <Route path="/searchdishe" element={<SearchDishe />} />
+      </Routes>
+
+      <Footer />
     </div>
   );
 }
