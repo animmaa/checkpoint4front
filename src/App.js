@@ -4,6 +4,7 @@ import Header from './components/header/Header';
 import Home from './components/pages/home/Home';
 import ListDishes from './components/pages/listDishes/ListDishes';
 import SearchDishe from './components/pages/searchDishe/SearchDishe';
+import Dishe from './components/pages/dishe/Dishe';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/listdishes" element={<ListDishes />} />
         <Route path="/searchdishe" element={<SearchDishe />} />
+        <Route path="/api/dishes/:id" element={<Dishe />} />
       </Routes>
 
       <Footer />

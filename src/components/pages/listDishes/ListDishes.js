@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './listDishes.scss';
 
@@ -23,6 +24,9 @@ const ListDishes = () => {
           <div>
             <div>{plat.name}</div>
             <div>{plat.image}</div>
+            <Link to={`/api/dishes/${plat.id}`} className="buttonLink">
+              Par ici
+            </Link>
           </div>
         ))}
       </div>
