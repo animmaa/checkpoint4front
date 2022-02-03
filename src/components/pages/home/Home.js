@@ -8,12 +8,12 @@ const Home = () => {
       <div className="general-home">
         <div className="encadre">
           <a href="/listdishes">
-            <h2>acceder a la liste des plats</h2>
+            <h2>Ma liste des plats réalisés</h2>
           </a>
         </div>
         <div className="encadre">
           <a href="/searchDishe">
-            <h2>acceder a la recherche d'un plat par ingredient</h2>
+            <h2>Liste des ingrédients utiles</h2>
           </a>
         </div>
       </div>

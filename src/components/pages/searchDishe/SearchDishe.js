@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './searchDishe.scss';
 
@@ -19,13 +18,11 @@ console.log(ingredients)
   return (
     <div className="search-dishe">
       <div>
-        <h1>liste des ingredients : </h1>
+        <div className='title-list'>
+          liste des ingredients : </div>
         {ingredients.map((ingredient) => (
-          <div>
-            <div>{ingredient.name}</div>
-            {/* <Link to={`/api/dishes/${ingredient.id}`} className="buttonLink">
-              Par ici
-            </Link> */}
+          <div className='list-ingre'>
+            <ul>- {ingredient.name}</ul>
           </div>
         ))}
       </div>

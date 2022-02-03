@@ -1,25 +1,64 @@
 .dishe {
-    height: 80vh;
-    .plat{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        background-color: coral;
-        min-height: 20vh;
-    }
-    .ingredi{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 3% 0;
-        font-size: 20px;
-        background-color: cornflowerblue;
+  background-image: url('../../../assets/japanese-g428270b2f_1280.jpg');
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
 
-        .ingredilist {
-            background-color: crimson;
-            width: 80vw;
-            
-        }
+  .plat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 40px;
+    color: red;
+    min-height: 20vh;
+    img {
+      width: 40vw;
+      height: auto;
     }
+  }
+  .ingredi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 3% 0;
+    font-size: 20px;
+
+    .ingredilist {
+      width: 80vw;
+    }
+  }
+  .lien_recette {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    margin-right: 10%;
+    height: 10vh;
+    width: 100%;
+    a {
+      color: black;
+      font-weight: 800;
+    }
+    img {
+      width: 20px;
+      margin-top: 10px;
+      animation-name: fleche;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes fleche {
+  0% {
+    transform: translate(0px, 0px) rotate(-90deg);
+  }
+  50% {
+    transform: translate(0px, 5px) rotate(-90deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(-90deg);
+  }
 }

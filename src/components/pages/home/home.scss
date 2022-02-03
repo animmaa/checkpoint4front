@@ -1,10 +1,15 @@
 .home {
-    background-color: green;
-    height: 80vh;
+    background-image: url("../../../assets/pink-g6b622f8fa_1280.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: absolute;
+    height: 70vh;
 
     .general-home{
         display: flex;
+        height: 100%;
         flex-direction: column;
+        justify-content: space-around;
         text-align: center;
         .encadre {
             background-color: burlywood;

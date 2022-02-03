@@ -1,12 +1,19 @@
 .footer {
-    background-color: rgb(247, 39, 39);
-    height: 10vh;
+    background-image: url("../../assets/footer-jap.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: absolute;
+    height: 15vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 
     .cadre-footer{
         padding: 5%;
         margin: 0 5%;
+        a {
+            color: white;
+            font-weight: 700;
+        }
     }
 
 }
