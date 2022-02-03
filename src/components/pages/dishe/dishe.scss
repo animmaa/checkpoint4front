@@ -10,10 +10,13 @@
     justify-content: space-around;
     align-items: center;
     font-size: 40px;
-    color: red;
+    font-weight: 600;
+    color: white;
     min-height: 20vh;
     img {
-      width: 40vw;
+      margin-top: 20px;
+      width: 60vw;
+      border-radius: 40%;
       height: auto;
     }
   }
@@ -50,6 +53,7 @@
     }
   }
 }
+
 
 @keyframes fleche {
   0% {

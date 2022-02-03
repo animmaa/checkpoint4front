@@ -32,6 +32,8 @@ const Dishe = () => {
       <div>
         <div className="ingredi">
           <div className="ingredilist">
+            ingredients : <br />
+            <br />
             {ingred.map((ingredientList) => (
               <li>{ingredientList.name}</li>
             ))}
@@ -43,7 +45,9 @@ const Dishe = () => {
         <img src={`${process.env.REACT_APP_API_URL}/uploads/${plat.image}`} />
       </div>
       <div className="lien_recette">
-        <a href={plat.lien_recette}>lien vers la recette</a>
+        <a href={plat.lien_recette} target="_blank">
+          lien vers la recette
+        </a>
         <img src={fleche} />
       </div>
     </div>

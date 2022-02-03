@@ -12,10 +12,12 @@
         justify-content: space-around;
         text-align: center;
         .encadre {
-            background-color: burlywood;
-            margin: 5% 10%;
-            padding: 5%;
+            border-radius: 100px;
+            background-color: rgb(241, 74, 74);
+            margin: 5% 15%;
+            padding: 3%;
             a{
+                color: black;
                 text-decoration: none;
             }
         }
