@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/listdishes" element={<ListDishes />} />
         <Route path="/searchdishe" element={<SearchDishe />} />
-        <Route path="/api/dishes/:id" element={<Dishe />} />
+        <Route path="/dishes/:id" element={<Dishe />} />
       </Routes>
 
       <Footer />

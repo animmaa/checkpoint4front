@@ -1,4 +1,18 @@
 .home {
     background-color: green;
     height: 80vh;
+
+    .general-home{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        .encadre {
+            background-color: burlywood;
+            margin: 5% 10%;
+            padding: 5%;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
 }

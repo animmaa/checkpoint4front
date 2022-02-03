@@ -19,14 +19,18 @@ const ListDishes = () => {
   return (
     <div className="list-dishes">
       <div>
-        <h1>liste des plats : </h1>
+        <div className="text">liste des plats : </div>
         {plats.map((plat) => (
-          <div>
-            <div>{plat.name}</div>
-            <div>{plat.image}</div>
-            <Link to={`/api/dishes/${plat.id}`} className="buttonLink">
-              Par ici
-            </Link>
+          <div className="mapping">
+            <div className="orga">
+              <div>{plat.name}</div>
+              <div>{plat.image}</div>
+            </div>
+            <div className='lien'>
+              <Link to={`/dishes/${plat.id}`} className="buttonLink">
+                Par ici
+              </Link>
+            </div>
           </div>
         ))}
       </div>

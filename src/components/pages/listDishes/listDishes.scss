@@ -1,4 +1,21 @@
 .list-dishes {
-    background-color: lightpink;
-    height: 80vh;
+  background-color: lightpink;
+  min-height: 80vh;
+  .text {
+    font-size: 30px;
+  }
+  .mapping {
+    padding: 5%;
+    margin: 10px;
+    .orga {
+      display: flex;
+      justify-content: space-around;
+        font-size: 30px;
+      margin-bottom: 5%;
+      padding: 5% 0;
+    }
+    .lien {
+      text-align: center;
+    }
+  }
 }
