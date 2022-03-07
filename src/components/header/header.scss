@@ -1,9 +1,11 @@
+@import '../../global.scss';
+
 .header {
-    //background-color: rgb(247, 39, 39);
-    background-image: url("../../assets/lantern.png");
+    background-color: $redJap;
+    /* background-image: url("../../assets/lantern.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: absolute;
+    background-position: absolute; */
     height: 15vh;
     display: flex;
     justify-content: space-around;

@@ -14,15 +14,14 @@ const SearchDishe = () => {
   useEffect(() => {
     getIngredients();
   }, []);
-console.log(ingredients)
+  console.log(ingredients);
   return (
     <div className="search-dishe">
       <div>
-        <div className='title-list'>
-          liste des ingredients : </div>
+        <div className="title-list">liste des ingredients : </div>
         {ingredients.map((ingredient) => (
-          <div className='list-ingre'>
-            <ul>- {ingredient.name}</ul>
+          <div key={ingredient} className="list-ingre">
+            <ul>&ndash;{ingredient.name}</ul>
           </div>
         ))}
       </div>

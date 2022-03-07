@@ -1,8 +1,11 @@
+@import '../../../global.scss';
+
 .home {
-    background-image: url("../../../assets/pink-g6b622f8fa_1280.jpg");
+    /* background-image: url("../../../assets/pink-g6b622f8fa_1280.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: absolute;
+    background-position: absolute; */
+    background-color: lightblue;
     height: 70vh;
 
     .general-home{

@@ -1,0 +1,16 @@
+$redJap: rgb(247, 39, 39);
+
+$widthTablet: 720px;
+$widthDesktop: 1024px;
+
+@mixin tablet {
+    @media(min-width: #{$widthTablet}) {
+        @content
+    }
+}
+
+@mixin desktop {
+    @media(min-width: #{$widthDesktop}) {
+        @content
+    }
+}

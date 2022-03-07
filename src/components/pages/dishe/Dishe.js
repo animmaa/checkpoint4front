@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import fleche from '../../../assets/fleche-droite.png'
+import fleche from '../../../assets/fleche-droite.png';
 import './dishe.scss';
 
 const Dishe = () => {
@@ -35,20 +35,25 @@ const Dishe = () => {
             ingredients : <br />
             <br />
             {ingred.map((ingredientList) => (
-              <li>{ingredientList.name}</li>
+              <li key={ingred}>{ingredientList.name}</li>
             ))}
           </div>
         </div>
       </div>
       <div className="plat">
         <div>{plat.name}</div>
-        <img src={`${process.env.REACT_APP_API_URL}/uploads/${plat.image}`} />
+        <div key={plat} className="image_plat">
+          <img
+            alt={plat.name}
+            src={`${process.env.REACT_APP_API_URL}/uploads/${plat.image}`}
+          />
+        </div>
       </div>
       <div className="lien_recette">
-        <a href={plat.lien_recette} target="_blank">
+        <a href={plat.lien_recette} target="_blank" rel="noopener noreferrer">
           lien vers la recette
         </a>
-        <img src={fleche} />
+        <img alt="flecheLien" src={fleche} />
       </div>
     </div>
   );

@@ -1,13 +1,19 @@
+@import '../../global.scss';
+
 .footer {
-    background-image: url("../../assets/footer-jap.png");
+    /* background-image: url("../../assets/footer-jap.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: absolute;
+    background-position: absolute; */
+    background-color: $redJap;
     height: 15vh;
     display: flex;
     justify-content: space-around;
 
     .cadre-footer{
+        display: flex;
+        align-items: center;
+        text-align: center;
         padding: 5%;
         margin: 0 5%;
         a {

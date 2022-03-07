@@ -1,6 +1,8 @@
+@import '../../../global.scss';
+
 .dishe {
-  background-image: url('../../../assets/japanese-g428270b2f_1280.jpg');
-  height: 70vh;
+  background-color: whitesmoke;
+  min-height: 70vh;
   display: flex;
   flex-direction: column;
 
@@ -11,22 +13,34 @@
     align-items: center;
     font-size: 40px;
     font-weight: 600;
-    color: white;
+    color: $redJap;
     min-height: 20vh;
-    img {
-      margin-top: 20px;
+    .image_plat {
+      margin-top: 10px;
       width: 60vw;
-      border-radius: 40%;
+      height: auto;
+
+      img {
+      margin-top: 20px;
+      width: 100%;
+      border-radius: 10%;
       height: auto;
     }
+    }
+    
   }
   .ingredi {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: $redJap;
     padding: 3% 0;
+    margin: 5% 0;
     font-size: 20px;
+    @include tablet {
+      font-size: 30px;
+      margin: 2% 0;
+    }
 
     .ingredilist {
       width: 80vw;
@@ -37,7 +51,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: end;
-    margin-right: 10%;
     height: 10vh;
     width: 100%;
     a {
@@ -46,14 +59,14 @@
     }
     img {
       width: 20px;
-      margin-top: 10px;
+      margin-top: 15px;
+      margin-bottom: 25px;
       animation-name: fleche;
       animation-duration: 1s;
       animation-iteration-count: infinite;
     }
   }
 }
-
 
 @keyframes fleche {
   0% {

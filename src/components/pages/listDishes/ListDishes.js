@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import curry from '../../../assets/curry.jpg'
 import './listDishes.scss';
 
 const ListDishes = () => {
@@ -22,14 +21,17 @@ const ListDishes = () => {
       <div>
         <div className="text">liste des plats : </div>
         {plats.map((plat) => (
-          <div className="mapping">
+          <div key={plat} className="mapping">
             <div className="orga">
-              <div className='title'>{plat.name}</div>
-              <img src={`${process.env.REACT_APP_API_URL}/uploads/${plat.image}`} />
+              <div className="title">{plat.name}</div>
+              <img
+                alt={plat.name}
+                src={`${process.env.REACT_APP_API_URL}/uploads/${plat.image}`}
+              />
             </div>
             <div className="lien">
               <Link to={`/dishes/${plat.id}`} className="buttonLink">
-                Détails
+                + Détails
               </Link>
             </div>
           </div>

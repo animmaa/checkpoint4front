@@ -5,22 +5,20 @@ import Home from './components/pages/home/Home';
 import ListDishes from './components/pages/listDishes/ListDishes';
 import SearchDishe from './components/pages/searchDishe/SearchDishe';
 import Dishe from './components/pages/dishe/Dishe';
-import './App.css';
+import './global.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/listdishes" element={<ListDishes />} />
-        <Route path="/searchdishe" element={<SearchDishe />} />
-        <Route path="/dishes/:id" element={<Dishe />} />
-      </Routes>
+const App = () => (
+  <div className="App">
+    <Header />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/listdishes" element={<ListDishes />} />
+      <Route path="/searchdishe" element={<SearchDishe />} />
+      <Route path="/dishes/:id" element={<Dishe />} />
+    </Routes>
 
-      <Footer />
-    </div>
-  );
-}
+    <Footer />
+  </div>
+);
 
 export default App;
