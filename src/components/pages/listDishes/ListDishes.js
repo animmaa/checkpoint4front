@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import './listDishes.scss';
 
 const ListDishes = () => {
+  const { id } = useParams();
   const [plats, setPlats] = useState([]);
+  const [ingred, setIngred] = useState([]);
+
+  const getIngred = () => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/ingredients/liste/${id}`)
+      .then((response) => setIngred(response.data));
+  };
 
   const getPlats = () => {
     axios
@@ -13,6 +21,7 @@ const ListDishes = () => {
   };
 
   useEffect(() => {
+    getIngred();
     getPlats();
   }, []);
 
@@ -20,22 +29,39 @@ const ListDishes = () => {
     <div className="list-dishes">
       <div>
         <div className="text">liste des plats : </div>
-        {plats.map((plat) => (
-          <div key={plat} className="mapping">
-            <div className="orga">
-              <div className="title">{plat.name}</div>
-              <img
-                alt={plat.name}
-                src={`${process.env.REACT_APP_API_URL}/uploads/${plat.image}`}
-              />
+        {id
+          ? ingred.map((Dishe) => (
+            <div key={Dishe} className="mapping">
+              <div className="orga">
+                <div className="title">{Dishe.name}</div>
+                <img
+                  alt={Dishe.name}
+                  src={`${process.env.REACT_APP_API_URL}/uploads/${Dishe.image}`}
+                />
+              </div>
+              <div className="lien">
+                <Link to={`/dishes/${Dishe.id}`} className="buttonLink">
+                  + Détails
+                </Link>
+              </div>
             </div>
-            <div className="lien">
-              <Link to={`/dishes/${plat.id}`} className="buttonLink">
-                + Détails
-              </Link>
+          ))
+          : plats.map((Dishe) => (
+            <div key={Dishe} className="mapping">
+              <div className="orga">
+                <div className="title">{Dishe.name}</div>
+                <img
+                  alt={Dishe.name}
+                  src={`${process.env.REACT_APP_API_URL}/uploads/${Dishe.image}`}
+                />
+              </div>
+              <div className="lien">
+                <Link to={`/dishes/${Dishe.id}`} className="buttonLink">
+                  + Détails
+                </Link>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
