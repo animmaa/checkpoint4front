@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './searchDishe.scss';
 
@@ -21,7 +22,12 @@ const SearchDishe = () => {
         <div className="title-list">liste des ingredients : </div>
         {ingredients.map((ingredient) => (
           <div key={ingredient} className="list-ingre">
-            <ul>&ndash;{ingredient.name}</ul>
+            <ul>
+              &ndash; {ingredient.name}&ensp;
+              <Link to={`/listdishes/${ingredient.id}`}>
+                +
+              </Link>
+            </ul>
           </div>
         ))}
       </div>
