@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import TextField from '@mui/material/TextField';
 import axios from 'axios';
 import './searchDishe.scss';
 
 const SearchDishe = () => {
   const [ingredients, setIngredients] = useState([]);
+  const [inputText, setInputText] = useState('');
+
+  const inputHandler = (e) => {
+    const lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+
+  const filteredData = ingredients.filter((filtreIngredients) => {
+    if (inputText === '') {
+      return filtreIngredients;
+    }
+    return filtreIngredients.name.toLowerCase().includes(inputText);
+  });
 
   const getIngredients = () => {
     axios
@@ -15,18 +29,25 @@ const SearchDishe = () => {
   useEffect(() => {
     getIngredients();
   }, []);
-  console.log(ingredients);
+
   return (
     <div className="search-dishe">
       <div>
+        <div className="search_bar">
+          <TextField
+            id="outlined-basic"
+            onChange={inputHandler}
+            variant="outlined"
+            fullWidth
+            label="Recherche un ingredient"
+          />
+        </div>
         <div className="title-list">liste des ingredients : </div>
-        {ingredients.map((ingredient) => (
-          <div key={ingredient} className="list-ingre">
+        {filteredData.map((ingredient) => (
+          <div key={ingredient.id} className="list-ingre">
             <ul>
               &ndash; {ingredient.name}&ensp;
-              <Link to={`/listdishes/${ingredient.id}`}>
-                +
-              </Link>
+              <Link to={`/listdishes/${ingredient.id}`}>+</Link>
             </ul>
           </div>
         ))}
