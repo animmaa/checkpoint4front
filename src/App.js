@@ -9,9 +9,7 @@ import './global.scss';
 import Login from './components/login/Login';
 import CreateDishes from './components/pages/createDishes/CreateDishes';
 import InsertIngredients from './components/pages/insertIngredients/InsertIngredients';
-import Creaplatbis from './components/pages/createDishes/Creaplatbis';
-import InsertIngre from './components/pages/insertIngredients/InsertIngre';
-import TestJointure from './components/pages/insertIngredients/TestJointure';
+import Newtest from './components/pages/insertIngredients/Newtest';
 
 const App = () => (
   <div className="App">
@@ -25,7 +23,7 @@ const App = () => (
       <Route path="/searchdishe" element={<SearchDishe />} />
       <Route path="/dishes/:id" element={<Dishe />} />
       <Route path="/test/:id" element={<InsertIngredients />} />
-      <Route path="/create/:id" element={<TestJointure />} />
+      <Route path="/create/:id" element={<Newtest />} />
     </Routes>
 
     <Footer />
