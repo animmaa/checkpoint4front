@@ -1,0 +1,42 @@
+@import '../../../global.scss';
+
+
+.menu-create {
+display: flex;
+flex-direction: column;
+padding: 30px;
+
+label{
+  margin: 10px;
+  input {
+    margin-left: 20px;
+  }
+}
+
+button {
+  width: 200px;
+}
+}
+
+.look-dishes {
+    background-color: yellow;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  .mapping {
+    background-color: blue;
+    width: 200px;
+    margin: 50px;
+
+    .orga {
+        display: flex;
+        background-color: red;
+        .title {
+            text-align: center;
+        }
+      img {
+        width: 200px;
+        height: auto;
+      }
+    }
+  }
+}

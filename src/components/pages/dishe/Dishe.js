@@ -45,7 +45,7 @@ const Dishe = () => {
         <div key={plat} className="image_plat">
           <img
             alt={plat.name}
-            src={`${process.env.REACT_APP_API_URL}/uploads/${plat.image}`}
+            src={`${process.env.REACT_APP_API_URL}/${plat.image}`}
           />
         </div>
       </div>

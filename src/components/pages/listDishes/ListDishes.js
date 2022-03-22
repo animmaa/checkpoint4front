@@ -36,7 +36,7 @@ const ListDishes = () => {
                 <div className="title">{Dishe.name}</div>
                 <img
                   alt={Dishe.name}
-                  src={`${process.env.REACT_APP_API_URL}/uploads/${Dishe.image}`}
+                  src={`${process.env.REACT_APP_API_URL}/${Dishe.image}`}
                 />
               </div>
               <div className="lien">
@@ -52,7 +52,7 @@ const ListDishes = () => {
                 <div className="title">{Dishe.name}</div>
                 <img
                   alt={Dishe.name}
-                  src={`${process.env.REACT_APP_API_URL}/uploads/${Dishe.image}`}
+                  src={`${process.env.REACT_APP_API_URL}/${Dishe.image}`}
                 />
               </div>
               <div className="lien">
