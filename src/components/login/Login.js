@@ -41,7 +41,7 @@ const Login = () => {
             },
           }) => {
             setError(message);
-          }
+          },
         );
       setError(JSON.stringify(values, null, 2));
     },

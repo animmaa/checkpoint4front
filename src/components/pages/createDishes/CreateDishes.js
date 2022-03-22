@@ -12,7 +12,6 @@ const CreateDishes = () => {
   /* const navigator = useNavigate(); */
 
   const handleSubmit = async () => {
-    //console.log(name, image, lien);
     const formData = new FormData();
     formData.append('name', name);
     formData.append('image', image);

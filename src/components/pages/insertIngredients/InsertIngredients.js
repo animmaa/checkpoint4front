@@ -1,116 +1,91 @@
 import React, { useEffect, useState } from 'react';
-import { useFormik } from 'formik';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const InsertIngredients = () => {
   const { id } = useParams();
-  const [ingredients, setIngredients] = useState([]);
-  const [name, setName] = useState('');
-  const [error, setError] = useState(null);
-  const [specificIng, setSpecificIng] = useState([]);
+  const [ingred, setIngred] = useState([]);
+  const [inputIngredient, setInputIngredient] = useState([]);
+  const [allIngredientAvailable, setAllIngredientAvailable] = useState([]);
+  const [refresh, setRefresh] = useState('');
+  const [refresh1, setRefresh1] = useState('');
 
-  const getIngredients = () => {
+  const getAllIngredientAvailable = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/ingredients`)
-      .then((response) => setIngredients(response.data));
+      .then((response) => setAllIngredientAvailable(response.data));
   };
 
-  console.log(specificIng.id);
-
-  useEffect(() => {
-    getIngredients();
-  }, []);
-
-  const getSpecificing = () => {
+  const getIngred = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/ingredients/test/${name}`)
-      .then((resp) => setSpecificIng(resp.data));
+      .get(`${process.env.REACT_APP_API_URL}/api/dishes/liste/${id}`)
+      .then((response) => setIngred(response.data));
   };
 
-  const verify = async () => {
-    const list = [];
-    {
-      ingredients.map((ingred) => list.push(ingred.name));
-    }
-    //console.log(list);
-    if (list.includes(name)) {
-      await console.log('il est present');
+  const AddIngredientToSelectedRecipie = async (ingredName) => {
+    const test = allIngredientAvailable
+      .filter((element) => element.name === ingredName)
+      .map((ingredient) => ingredient.name);
+    console.log(test);
+    if (ingredName === test[0]) {
+      const pickIdFromIngredientList = allIngredientAvailable
+        .filter((element) => element.name === ingredName)
+        .map((ingredient) => ingredient.id);
 
-      //console.log(idPlat);
-      //console.log(fData);
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/matchIngredientRouter/${id}`,
+        {
+          id_ingredients: pickIdFromIngredientList,
+        },
+      );
+      setRefresh1('ok');
+      setRefresh1('');
+      setRefresh('');
     } else {
-      console.log("il n'est pas present");
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/ingredients`, {
+        name: ingredName,
+      });
+      alert(
+        `l'ingredient : ${ingredName} à était ajouter à la liste des ingredients`,
+      );
+      setRefresh('ok');
     }
   };
 
   useEffect(() => {
-    getSpecificing();
-    verify();
-  }, []);
+    getAllIngredientAvailable();
+  }, [refresh]);
 
-  /* const addIngredient = async () => {
-    const fData = new FormData();
-    fData.append('name', name);
-    await axios.post(`${process.env.REACT_APP_API_URL}/api/ingredients`, fData);
-  }; */
+  useEffect(() => {
+    getIngred();
+  }, [refresh1]);
 
   return (
-    <div className="">
-      <label htmlFor="name">
-        name
-        <input
-          id="name"
-          name="name"
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-      </label>
-      <button type="button" /* onClick={addIngredient} */>submit</button>
-      <div></div>
+    <div>
+      <input
+        className="form-control"
+        id="ingredient input"
+        type="text"
+        onChange={(event) => setInputIngredient(event.target.value)}
+      />
+      <button
+        type="button"
+        className=""
+        onClick={() => AddIngredientToSelectedRecipie(inputIngredient)}
+      >
+        addIngredient to recipie
+      </button>
+      <div className="ingredi">
+        <div className="ingredilist">
+          ingredients : <br />
+          <br />
+          {ingred.map((ingredientList) => (
+            <li key={ingred.id}>{ingredientList.name}</li>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
-
-/* const getIngredients = () => {
-  axios
-    .get(`${process.env.REACT_APP_API_URL}/api/ingredients`)
-    .then((response) => setIngredients(response.data));
-};
-
-useEffect(() => {
-  getIngredients();
-}, []); */
-
-/* <label htmlFor="idPlats">
-id du plat
-        <input
-        id="idPlats"
-        name="idPlats"
-        type="text"
-          value={id}
-          onChange={(event) => setIdPlat(event.target.value)}
-          />
-          </label> */
-
-// si l'ingredient est present
-// => j'ajoute l'id de l'ingredient dans la table de jointure avec id plat
-/* const list = [];
-      {
-          ingredients.map((ingred) => list.push(ingred.name));
-        }
-        console.log(list); */
-/* if (list.includes(name)) { */
-//console.log('il est present');
-//console.log(idPlat);
-//console.log(fData);
-/* } else {
-      console.log("il n'est pas present");
-    } */
-
-// si il n'est pas present
-// => je le crée en le mettant dans la table ingredient puis
-// je l'ajoute a la able de jointure
 
 export default InsertIngredients;

@@ -9,7 +9,6 @@ import './global.scss';
 import Login from './components/login/Login';
 import CreateDishes from './components/pages/createDishes/CreateDishes';
 import InsertIngredients from './components/pages/insertIngredients/InsertIngredients';
-import Newtest from './components/pages/insertIngredients/Newtest';
 
 const App = () => (
   <div className="App">
@@ -22,8 +21,7 @@ const App = () => (
       <Route path="/listdishes/:id" element={<ListDishes />} />
       <Route path="/searchdishe" element={<SearchDishe />} />
       <Route path="/dishes/:id" element={<Dishe />} />
-      <Route path="/test/:id" element={<InsertIngredients />} />
-      <Route path="/create/:id" element={<Newtest />} />
+      <Route path="/create/:id" element={<InsertIngredients />} />
     </Routes>
 
     <Footer />
