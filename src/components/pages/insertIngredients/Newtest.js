@@ -7,6 +7,8 @@ const Newtest = () => {
   const [ingred, setIngred] = useState([]);
   const [inputIngredient, setInputIngredient] = useState([]);
   const [allIngredientAvailable, setAllIngredientAvailable] = useState([]);
+  const [refresh, setRefresh] = useState("")
+  const [refresh1, setRefresh1] = useState('');
 
   const getAllIngredientAvailable = () => {
     axios
@@ -21,25 +23,51 @@ const Newtest = () => {
   };
 
   const AddIngredientToSelectedRecipie = async (ingredName) => {
-    const pickIdFromIngredientList = allIngredientAvailable
-      .filter((element) => element.name === ingredName)
-      .map((ingredient) => ingredient.id);
+      const test = allIngredientAvailable
+        .filter((element) => element.name === ingredName)
+        .map((ingredient) => ingredient.name);
+      console.log(test)
+    if (
+      ingredName == test)
+     {
+      const pickIdFromIngredientList = allIngredientAvailable
+        .filter((element) => element.name === ingredName)
+        .map((ingredient) => ingredient.id);
 
-    await axios.post(`http://localhost:8000/api/matchIngredientRouter/${id}`, {
-      id_ingredients: pickIdFromIngredientList,
-    });
-
-    getIngred();
+      await axios.post(
+        `http://localhost:8000/api/matchIngredientRouter/${id}`,
+        {
+          id_ingredients: pickIdFromIngredientList,
+        }
+      );
+      setRefresh1("ok")
+      setRefresh1("")
+      //setRefresh("ok")
+    } else {
+        await axios.post(
+          `http://localhost:8000/api/ingredients`,
+          {
+            name: ingredName,
+          }
+        );
+          setRefresh("ok")
+          //setRefresh1("ok")
+        /* window.location.reload(); */
+        //alert("l'ingredient a été ajouté a la liste, reclick pour le lié a la recette")
+    }
+    
+    console.log(ingred)
+    //getIngred();
     //alert('ingredient added to recipie!');
   };
 
   useEffect(() => {
-    getIngred();
-  }, []);
-
-  useEffect(() => {
     getAllIngredientAvailable();
-  }, []);
+  }, [refresh]);
+
+useEffect(() => {
+  getIngred();
+}, [refresh1]);
 
   return (
     <div>
@@ -61,7 +89,7 @@ const Newtest = () => {
           ingredients : <br />
           <br />
           {ingred.map((ingredientList) => (
-            <li key={ingred}>{ingredientList.name}</li>
+            <li key={ingred.id}>{ingredientList.name}</li>
           ))}
         </div>
       </div>
