@@ -18,7 +18,6 @@ const CreateDishes = () => {
     formData.append('lienRecette', lien);
 
     axios.post(`${process.env.REACT_APP_API_URL}/api/dishes`, formData);
-    console.log(formData);
   };
 
   const getPlats = () => {

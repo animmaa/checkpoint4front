@@ -1,13 +1,20 @@
 $redJap: rgb(247, 39, 39);
 
+$widthMobil: 480px;
 $widthTablet: 720px;
 $widthDesktop: 1024px;
+
+@mixin mobil {
+    @media(max-width: #{$widthMobil}) {
+        @content
+    }
+};
 
 @mixin tablet {
     @media(min-width: #{$widthTablet}) {
         @content
     }
-}
+};
 
 @mixin desktop {
     @media(min-width: #{$widthDesktop}) {

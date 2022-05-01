@@ -26,7 +26,6 @@ const Dishe = () => {
     getIngred();
   }, []);
 
-  console.log(ingred);
   return (
     <div className="dishe">
       <div>
