@@ -1,0 +1,43 @@
+@import '../../../global.scss';
+
+.add-test {
+  background-color: black;
+  height: 50px;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  .form-control {
+    width: 50vw;
+    border-radius: 20px 0 0 20px;
+    border: 0;
+  }
+  button {
+    width: 20vw;
+    background-color: lightgray;
+    border-radius: 0 20px 20px 0;
+    border: 0;
+  }
+}
+
+.partage {
+  display: flex;
+  .col-left {
+    background-color: blueviolet;
+    width: 50vw;
+    padding: 30px 0 0 40px;
+    .listing-ingredient-plat {
+        padding-bottom: 3px;
+    }
+  }
+  .col-right {
+    background-color: green;
+    width: 50vw;
+    padding: 30px 20px 20px 40px;
+    .search_bar {
+        padding-bottom: 30px;
+    }
+    .listing-ingredient {
+        padding-top: 3px;
+    }
+  }
+}
