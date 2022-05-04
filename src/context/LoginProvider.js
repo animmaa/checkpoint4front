@@ -10,9 +10,7 @@ const AdminContext = createContext(null);
 
 const LoginProvider = ({ children }) => {
   const [admin, setAdmin] = useState(
-    localStorage.getItem(
-      'admin' ? JSON.parse(localStorage.getItem('admin')) : null,
-    ),
+    localStorage.getItem('admin') ? JSON.parse(localStorage.getItem('admin')) : null,
   );
 
   useEffect(() => {

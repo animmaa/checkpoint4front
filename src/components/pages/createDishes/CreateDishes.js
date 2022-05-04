@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-/* import { useNavigate }  from 'react-router-dom'; */
 import './createDishes.scss';
 
 const CreateDishes = () => {
@@ -9,7 +8,6 @@ const CreateDishes = () => {
   const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [lien, setLien] = useState('');
-  /* const navigator = useNavigate(); */
 
   const handleSubmit = async () => {
     const formData = new FormData();
@@ -18,7 +16,6 @@ const CreateDishes = () => {
     formData.append('lienRecette', lien);
 
     axios.post(`${process.env.REACT_APP_API_URL}/api/dishes`, formData);
-    console.log(formData);
   };
 
   const getPlats = () => {
@@ -30,10 +27,6 @@ const CreateDishes = () => {
   useEffect(() => {
     getPlats();
   }, []);
-
-  /* useEffect(() => {
-    if (localStorage.getItem('jwt') === null) navigator('/');
-  }, []); */
 
   return (
     <>
