@@ -18,6 +18,7 @@ const CreateDishes = () => {
     formData.append('lienRecette', lien);
 
     axios.post(`${process.env.REACT_APP_API_URL}/api/dishes`, formData);
+    console.log(formData);
   };
 
   const getPlats = () => {
@@ -73,7 +74,7 @@ const CreateDishes = () => {
           {plats.map((Dishe) => (
             <div key={Dishe} className="mapping">
               <div className="orga">
-                <Link to={`/create/${Dishe.id}`} className="buttonLink">
+                <Link to={`/admin/create/${Dishe.id}`} className="buttonLink">
                   <div className="title">{Dishe.name}</div>
                   <img
                     alt={Dishe.name}
