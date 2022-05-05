@@ -18,6 +18,10 @@ const CreateDishes = () => {
     axios.post(`${process.env.REACT_APP_API_URL}/api/dishes`, formData);
   };
 
+  const DeleteDisheTo = (deletePlatId) => {
+    axios.delete(`${process.env.REACT_APP_API_URL}/api/dishes/${deletePlatId}`);
+  };
+
   const getPlats = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/dishes`)
@@ -74,6 +78,13 @@ const CreateDishes = () => {
                     src={`${process.env.REACT_APP_API_URL}/${Dishe.image}`}
                   />
                 </Link>
+                <button
+                  type="button"
+                  className=""
+                  onClick={() => DeleteDisheTo(Dishe.id)}
+                >
+                  Supprimer
+                </button>
               </div>
             </div>
           ))}
