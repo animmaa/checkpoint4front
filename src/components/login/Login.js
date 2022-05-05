@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useLogin } from '../../context/LoginProvider';
 
 const Login = () => {
   const navigator = useNavigate();
   const [error, setError] = useState('');
+  const { setAdmin } = useLogin();
 
   const formik = useFormik({
     initialValues: {
@@ -31,8 +33,10 @@ const Login = () => {
       axios
         .post('http://localhost:8000/admin/login/', values)
         .then(({ data: { credential } }) => {
-          localStorage.setItem('jwt', credential);
-          navigator('/create');
+          setAdmin({
+            token: credential,
+          });
+          navigator('/admin/create');
         })
         .catch(
           ({
