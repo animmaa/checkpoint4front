@@ -18,14 +18,17 @@ const CreateDishes = () => {
     axios.post(`${process.env.REACT_APP_API_URL}/api/dishes`, formData);
   };
 
-  const DeleteDisheTo = (deletePlatId) => {
-    axios.delete(`${process.env.REACT_APP_API_URL}/api/dishes/${deletePlatId}`);
-  };
-
-  const getPlats = () => {
-    axios
+  const getPlats = async () => {
+    await axios
       .get(`${process.env.REACT_APP_API_URL}/api/dishes`)
       .then((response) => setPlats(response.data));
+  };
+
+  const DeleteDisheTo = async (deletePlatId) => {
+    await axios.delete(
+      `${process.env.REACT_APP_API_URL}/api/dishes/${deletePlatId}`,
+    );
+    await getPlats();
   };
 
   useEffect(() => {

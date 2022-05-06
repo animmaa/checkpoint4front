@@ -10,6 +10,9 @@ const Header = () => (
       </a>
     </div>
     <div>
+      <a href="/login">Login</a>
+    </div>
+    <div>
       <h3>BIENVENUE / いらっしゃいませ</h3>
     </div>
   </div>
