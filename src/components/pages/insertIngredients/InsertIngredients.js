@@ -9,8 +9,6 @@ const InsertIngredients = () => {
   const [ingred, setIngred] = useState([]);
   const [inputIngredient, setInputIngredient] = useState([]);
   const [allIngredientAvailable, setAllIngredientAvailable] = useState([]);
-  const [refresh, setRefresh] = useState('');
-  const [refresh1, setRefresh1] = useState('');
   const [inputText, setInputText] = useState('');
 
   const inputHandler = (e) => {
@@ -25,14 +23,14 @@ const InsertIngredients = () => {
     return filtreIngredients.name.toLowerCase().includes(inputText);
   });
 
-  const getAllIngredientAvailable = () => {
-    axios
+  const getAllIngredientAvailable = async () => {
+    await axios
       .get(`${process.env.REACT_APP_API_URL}/api/ingredients`)
       .then((response) => setAllIngredientAvailable(response.data));
   };
 
-  const getIngred = () => {
-    axios
+  const getIngred = async () => {
+    await axios
       .get(`${process.env.REACT_APP_API_URL}/api/dishes/liste/${id}`)
       .then((response) => setIngred(response.data));
   };
@@ -41,16 +39,8 @@ const InsertIngredients = () => {
     await axios.post(`${process.env.REACT_APP_API_URL}/api/ingredients`, {
       name: ingredName,
     });
-    setRefresh('ok');
+    await getAllIngredientAvailable();
   };
-
-  useEffect(() => {
-    getAllIngredientAvailable();
-  }, [refresh]);
-
-  useEffect(() => {
-    getIngred();
-  }, [refresh1]);
 
   const AddIngredientTo = async (ingredId) => {
     await axios.post(
@@ -59,19 +49,20 @@ const InsertIngredients = () => {
         idIngredients: ingredId,
       },
     );
-    setRefresh1('ok');
-    setRefresh1('');
-    setRefresh('');
+    await getIngred();
   };
 
   const DeleteIngredientTo = async (deleteIngredId) => {
     await axios.delete(
       `${process.env.REACT_APP_API_URL}/api/ingredients/delete/${deleteIngredId}`,
     );
-    setRefresh1('ok');
-    setRefresh1('');
-    setRefresh('');
+    await getIngred();
   };
+
+  useEffect(() => {
+    getAllIngredientAvailable();
+    getIngred();
+  }, []);
 
   return (
     <div>
@@ -124,7 +115,7 @@ const InsertIngredients = () => {
             />
           </div>
           {filteredData.map((ingredientList) => (
-            <li className="listing-ingredient" key={allIngredientAvailable.id}>
+            <li className="listing-ingredient" key={ingredientList.id}>
               <button
                 type="button"
                 className=""
