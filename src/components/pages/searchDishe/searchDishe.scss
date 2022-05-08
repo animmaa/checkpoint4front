@@ -1,27 +1,36 @@
 @import '../../../global.scss';
 
 .search-dishe {
-    background-image: url("../../../assets/vegetables-gdd0d8ce9d_1920.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: absolute;
-    min-height: 70vh;
-    padding-bottom: 10px;
+  background-image: url('../../../assets/vegetables-gdd0d8ce9d_1920.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: absolute;
+  min-height: 70vh;
+  padding-bottom: 10px;
+  color: $redJap;
+  p {
+    font-size: 25px;
+    color: black;
+    text-align: center;
+  }
+  .search_bar {
+    padding: 25px;
     color: $redJap;
-    .search_bar {
-        padding: 25px;
-        color: $redJap;
+  }
+  .title-list {
+    font-size: 35px;
+    font-weight: 800;
+    padding-top: 20px;
+    padding-left: 15px;
+    text-decoration: underline;
+  }
+  .list-ingre {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 2px 0;
+    a {
+      text-decoration: none;
+      color: $redJap;
     }
-    .title-list{
-        font-size: 35px;
-        font-weight: 800;
-        padding-top: 20px;
-        padding-left: 15px;
-        text-decoration: underline;
-    }
-    .list-ingre {
-        font-size: 20px;
-        font-weight: 700;
-        margin: 2px 0;
-    }
+  }
 }

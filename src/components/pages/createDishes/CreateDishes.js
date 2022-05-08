@@ -9,6 +9,12 @@ const CreateDishes = () => {
   const [image, setImage] = useState('');
   const [lien, setLien] = useState('');
 
+  const getPlats = async () => {
+    await axios
+      .get(`${process.env.REACT_APP_API_URL}/api/dishes`)
+      .then((response) => setPlats(response.data));
+  };
+
   const handleSubmit = async () => {
     const formData = new FormData();
     formData.append('name', name);
@@ -16,12 +22,6 @@ const CreateDishes = () => {
     formData.append('lienRecette', lien);
 
     axios.post(`${process.env.REACT_APP_API_URL}/api/dishes`, formData);
-  };
-
-  const getPlats = async () => {
-    await axios
-      .get(`${process.env.REACT_APP_API_URL}/api/dishes`)
-      .then((response) => setPlats(response.data));
   };
 
   const DeleteDisheTo = async (deletePlatId) => {

@@ -32,6 +32,10 @@ const SearchDishe = () => {
 
   return (
     <div className="search-dishe">
+      <p className="descriptif">
+        Cliquez sur l&apos;ingrédient de votre choix pour voir les recettes
+        comportant celui-ci
+      </p>
       <div>
         <div className="search_bar">
           <TextField
@@ -46,8 +50,9 @@ const SearchDishe = () => {
         {filteredData.map((ingredient) => (
           <div key={ingredient.id} className="list-ingre">
             <ul>
-              &ndash; {ingredient.name}&ensp;
-              <Link to={`/listdishes/${ingredient.id}`}>+</Link>
+              <Link to={`/listdishes/${ingredient.id}`}>
+                &ndash; {ingredient.name}&ensp;
+              </Link>
             </ul>
           </div>
         ))}

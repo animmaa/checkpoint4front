@@ -22,9 +22,9 @@ const App = () => (
         <Route path="/listdishes/:id" element={<ListDishes />} />
         <Route path="/searchdishe" element={<SearchDishe />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dishes/:id" element={<Dishe />} />
         <Route path="/admin" element={<AdminRoutes />}>
           <Route path="/admin/create" element={<CreateDishes />} />
-          <Route path="/admin/dishes/:id" element={<Dishe />} />
           <Route path="/admin/create/:id" element={<InsertIngredients />} />
         </Route>
       </Routes>
