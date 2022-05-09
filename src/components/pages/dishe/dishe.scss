@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
 
-  .plat {
+  .title-dishes {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -15,21 +15,20 @@
     font-weight: 600;
     color: $redJap;
     min-height: 20vh;
-    .image_plat {
+    .image-plat {
       margin-top: 10px;
       width: 60vw;
       height: auto;
 
       img {
-      margin-top: 20px;
-      width: 100%;
-      border-radius: 10%;
-      height: auto;
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 10%;
+        height: auto;
+      }
     }
-    }
-    
   }
-  .ingredi {
+  .ingredients {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,11 +41,11 @@
       margin: 2% 0;
     }
 
-    .ingredilist {
+    .ingredients-list {
       width: 80vw;
     }
   }
-  .lien_recette {
+  .link-recette {
     display: flex;
     flex-direction: column;
     align-items: center;

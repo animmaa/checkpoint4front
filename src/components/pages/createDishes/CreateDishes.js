@@ -21,7 +21,8 @@ const CreateDishes = () => {
     formData.append('image', image);
     formData.append('lienRecette', lien);
 
-    axios.post(`${process.env.REACT_APP_API_URL}/api/dishes`, formData);
+    await axios.post(`${process.env.REACT_APP_API_URL}/api/dishes`, formData);
+    await getPlats();
   };
 
   const DeleteDisheTo = async (deletePlatId) => {
@@ -70,28 +71,26 @@ const CreateDishes = () => {
         </button>
       </div>
       <div className="look-dishes">
-        <div>
-          {plats.map((Dishe) => (
-            <div key={Dishe} className="mapping">
-              <div className="orga">
-                <Link to={`/admin/create/${Dishe.id}`} className="buttonLink">
-                  <div className="title">{Dishe.name}</div>
-                  <img
-                    alt={Dishe.name}
-                    src={`${process.env.REACT_APP_API_URL}/${Dishe.image}`}
-                  />
-                </Link>
-                <button
-                  type="button"
-                  className=""
-                  onClick={() => DeleteDisheTo(Dishe.id)}
-                >
-                  Supprimer
-                </button>
-              </div>
+        {plats.map((Dishe) => (
+          <div key={Dishe} className="mapping">
+            <div className="layout">
+              <Link to={`/admin/create/${Dishe.id}`} className="buttonLink">
+                <div className="title">{Dishe.name}</div>
+                <img
+                  alt={Dishe.name}
+                  src={`${process.env.REACT_APP_API_URL}/${Dishe.image}`}
+                />
+              </Link>
+              <button
+                type="button"
+                className="delete-button-dishe"
+                onClick={() => DeleteDisheTo(Dishe.id)}
+              >
+                Supprimer
+              </button>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </>
   );

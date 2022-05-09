@@ -66,7 +66,7 @@ const InsertIngredients = () => {
 
   return (
     <div>
-      <div className="add-test">
+      <div className="create-ingredients">
         <input
           className="form-control"
           id="ingredient input"
@@ -81,27 +81,23 @@ const InsertIngredients = () => {
           Créer nouvelle ingredient
         </button>
       </div>
-      <div className="partage">
+      <div className="global-insert-ingredients">
         <div className="col-left">
-          <div className="ingredi">
-            <div className="ingredilist">
-              ingredients : <br />
-              <br />
-              {ingred.map((ingredientList) => (
-                <li className="listing-ingredient-plat" key={ingred.id}>
-                  <button
-                    type="button"
-                    className=""
-                    onClick={() => DeleteIngredientTo(ingredientList.id)}
-                  >
-                    Supprimer
-                  </button>
-                  &emsp;
-                  {ingredientList.name}{' '}
-                </li>
-              ))}
-            </div>
-          </div>
+          Ingredients du plat : <br />
+          <br />
+          {ingred.map((ingredientList) => (
+            <li className="listing-ingredient-plat" key={ingred.id}>
+              <button
+                type="button"
+                className=""
+                onClick={() => DeleteIngredientTo(ingredientList.id)}
+              >
+                Supprimer
+              </button>
+              &emsp;
+              {ingredientList.name}{' '}
+            </li>
+          ))}
         </div>
 
         <div className="col-right">

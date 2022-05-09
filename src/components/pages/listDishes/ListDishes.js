@@ -27,38 +27,39 @@ const ListDishes = () => {
 
   return (
     <div className="list-dishes">
-      <div>
-        <div className="text">liste des plats : </div>
+      <div className="text">Liste des plats : </div>
+      <div className="layout-dishes">
         {id
           ? ingred.map((Dishe) => (
             <div key={Dishe} className="mapping">
-              <div className="orga">
+              <div className="describe-dishe">
                 <div className="title">{Dishe.name}</div>
                 <img
                   alt={Dishe.name}
                   src={`${process.env.REACT_APP_API_URL}/${Dishe.image}`}
                 />
-              </div>
-              <div className="lien">
-                <Link to={`/dishes/${Dishe.id}`} className="buttonLink">
-                  + Détails
-                </Link>
+                <div className="lien-page-ingredient">
+                  <Link to={`/dishes/${Dishe.id}`} className="buttonLink">
+                    + Détails
+                  </Link>
+                </div>
               </div>
             </div>
           ))
           : plats.map((Dishe) => (
             <div key={Dishe} className="mapping">
-              <div className="orga">
+              <div className="describe-dishe">
                 <div className="title">{Dishe.name}</div>
                 <img
+                  className="image-dishe"
                   alt={Dishe.name}
                   src={`${process.env.REACT_APP_API_URL}/${Dishe.image}`}
                 />
-              </div>
-              <div className="lien">
-                <Link to={`/dishes/${Dishe.id}`} className="buttonLink">
-                  + Détails
-                </Link>
+                <div className="lien-page-ingredient">
+                  <Link to={`/dishes/${Dishe.id}`} className="buttonLink">
+                    + Détails
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

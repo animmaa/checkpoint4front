@@ -6,50 +6,48 @@ import './dishe.scss';
 
 const Dishe = () => {
   const { id } = useParams();
-  const [plat, setPlat] = useState([]);
-  const [ingred, setIngred] = useState([]);
+  const [dishe, setDishe] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
 
-  const getPlat = () => {
+  const getDishe = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/dishes/${id}`)
-      .then((response) => setPlat(response.data));
+      .then((response) => setDishe(response.data));
   };
 
-  const getIngred = () => {
+  const getIngredients = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/dishes/liste/${id}`)
-      .then((response) => setIngred(response.data));
+      .then((response) => setIngredients(response.data));
   };
 
   useEffect(() => {
-    getPlat();
-    getIngred();
+    getDishe();
+    getIngredients();
   }, []);
 
   return (
     <div className="dishe">
-      <div>
-        <div className="ingredi">
-          <div className="ingredilist">
-            ingredients : <br />
-            <br />
-            {ingred.map((ingredientList) => (
-              <li key={ingred}>{ingredientList.name}</li>
-            ))}
-          </div>
+      <div className="ingredients">
+        <div className="ingredients-list">
+          ingredients : <br />
+          <br />
+          {ingredients.map((ingredientList) => (
+            <li key={ingredients}>{ingredientList.name}</li>
+          ))}
         </div>
       </div>
-      <div className="plat">
-        <div>{plat.name}</div>
-        <div key={plat} className="image_plat">
+      <div className="title-dishes">
+        <div>{dishe.name}</div>
+        <div key={dishe} className="image-plat">
           <img
-            alt={plat.name}
-            src={`${process.env.REACT_APP_API_URL}/${plat.image}`}
+            alt={dishe.name}
+            src={`${process.env.REACT_APP_API_URL}/${dishe.image}`}
           />
         </div>
       </div>
-      <div className="lien_recette">
-        <a href={plat.lien_recette} target="_blank" rel="noopener noreferrer">
+      <div className="link-recette">
+        <a href={dishe.lien_recette} target="_blank" rel="noopener noreferrer">
           lien vers la recette
         </a>
         <img alt="flecheLien" src={fleche} />

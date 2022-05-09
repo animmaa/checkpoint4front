@@ -1,36 +1,62 @@
 @import '../../../global.scss';
 
 .list-dishes {
-  background-color: whitesmoke;
-  min-height: 70vh;
+  background-color: white;
   .text {
     font-size: 30px;
     padding-top: 20px;
     margin-left: 15px;
+    text-align: center;
   }
-  .mapping {
-    padding: 5%;
-    .orga {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      font-size: 30px;
-      margin-bottom: 3%;
-      padding: 3% 0;
-      .title {
-        margin-bottom: 20px;
-      }
-      img {
-        width: 40vw;
-        height: auto;
-      }
+
+  .layout-dishes {
+    
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
-    .lien {
-      text-align: center;
-      font-weight: 800;
-      .buttonLink {
-        color: $redJap;
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .mapping {
+      width: 75%;
+      margin: 40px;
+
+      .describe-dishe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $redJap;
+        border-radius: 30px;
+
+        .title {
+          margin: 10px 0;
+          font-size: 25px;
+          color: black;
+        }
+        .image-dishe {
+          padding-bottom: 15px;
+        }
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      .lien-page-ingredient {
+        text-align: center;
+        margin-bottom: 10px;
+
+        .buttonLink {
+          color: black;
+          font-weight: 500;
+          text-decoration: none;
+        }
       }
     }
   }

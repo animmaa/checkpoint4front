@@ -1,41 +1,60 @@
 @import '../../../global.scss';
 
-
 .menu-create {
-display: flex;
-flex-direction: column;
-padding: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
 
-label{
-  margin: 10px;
-  input {
-    margin-left: 20px;
+  label {
+    margin: 10px;
+    input {
+      margin-left: 20px;
+    }
+  }
+
+  button {
+    width: 200px;
+    margin-left: 100px;
   }
 }
 
-button {
-  width: 200px;
-}
-}
-
 .look-dishes {
-    background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(146, 146, 67);
+  align-items: center;
+
+  @include tablet {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-  .mapping {
-    background-color: blue;
-    width: 200px;
-    margin: 50px;
+  }
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-    .orga {
-        display: flex;
-        background-color: red;
-        .title {
-            text-align: center;
-        }
+  .mapping {
+    width: 300px;
+    margin: 40px;
+
+    .layout {
+      display: flex;
+      flex-direction: column;
+
+      a {
+        text-decoration: none;
+        color: black;
+        font-weight: 600;
+      }
+      .title {
+        text-align: center;
+        margin: 7px;
+      }
       img {
-        width: 200px;
+        width: 100%;
         height: auto;
+      }
+      .delete-button-dishe {
+        padding: 8px;
       }
     }
   }
