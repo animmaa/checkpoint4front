@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useLogin } from '../../context/LoginProvider';
+import './login.scss';
 
 const Login = () => {
   const navigator = useNavigate();
@@ -52,7 +53,7 @@ const Login = () => {
   });
 
   return (
-    <div className="Login">
+    <div className="login">
       <h1>Login Form</h1>
       <p className="error">{error}</p>
       <form onSubmit={formik.handleSubmit}>

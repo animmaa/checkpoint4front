@@ -1,7 +1,7 @@
 @import '../../../global.scss';
 
 .home {
-    background-color: rgb(245, 233, 212);
+    background: linear-gradient(rgb(243, 195, 203), rgb(214, 97, 214), rgb(243, 195, 203));
     height: 70vh;
 
     .general-home{
@@ -12,8 +12,8 @@
         text-align: center;
         .border-tab {
             border-radius: 100px;
-            background-color: rgb(241, 74, 74);
-            margin: 5% 15%;
+            background-color: $redJap;
+            margin: 1% 10%;
             padding: 3%;
             a{
                 color: black;

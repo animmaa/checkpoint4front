@@ -32,7 +32,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-color: $redJap;
+        background: linear-gradient(to right,rgb(243, 195, 203), $redJap, rgb(243, 195, 203));
         border-radius: 30px;
 
         .title {

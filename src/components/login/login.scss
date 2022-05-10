@@ -1,0 +1,31 @@
+@import '../../global.scss';
+
+.login {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  background: radial-gradient(rgb(243, 195, 203), $redJap, rgb(243, 195, 203));
+  h1 {
+      text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10vh;
+    button {
+        width: 150px;
+        padding: 10px;
+        margin-top: 30px;
+        border-radius: 10px;
+        background-color: $redJap;
+    }
+    label {
+        padding: 10px;
+        font-size: 20px;
+        input {
+            margin-left: 20px;
+        }
+    }
+  }
+}
